@@ -12,16 +12,17 @@
             <img id="ipresentacio2" src="assets/imatges/0_general.jpg">
             <img id="i00" src="assets/imatges/0_general.jpg">
             <img id="i01" src="assets/imatges/1_1oficines.jpg">   
-            <img id="i02" src="assets/imatges/ermitaAltar.jpg">
-            <img id="i03" src="assets/imatges/3_plantatransferencia.jpg">
-            <img id="i04" src="assets/imatges/ermitaAltar.jpg">
-            <img id="i05" src="assets/imatges/ermitaAltar.jpg">
-            <img id="i06" src="assets/imatges/ermitaAltar.jpg">
-            <img id="i07" src="assets/imatges/ermitaAltar.jpg">
-            <img id="i08" src="assets/imatges/ermitaAltar.jpg">
-            <img id="i09" src="assets/imatges/ermitaAltar.jpg">   
-            <img id="i010" mylink=https://fernando252778.github.io/XDDD/">            
-         
+            <img id="i05" src="assets/imatges/2_abocador.jpg">
+            <img id="i07" src="assets/imatges/3_plantatransferencia.jpg">    
+            <img id="i06" src="assets/imatges/4_motorbiogas.jpg">
+            <img id="i08" src="assets/imatges/5_bassesdaigues.jpg">
+            <img id="i04" src="assets/imatges/6_parcsolar.jpg">
+            <img id="i09" src="assets/imatges/7_plantacompostatge.jpg">
+            <img id="i02" src="assets/imatges/8_novaplanta.jpg">
+            <img id="i03" src="assets/imatges/9_falconeria.jpg">
+            <img id="i010" mylink="https://fernando252778.github.io/XDDD/">            
+
+            
 
             <!--imatge del plano-->
             <img id="dibuplano" src="assets/imatges/parc_ambiental_mapa.jpg">
@@ -34,6 +35,7 @@
         </a-assets>
 
         <a-entity camera look-controls wasd-controls="false"></a-entity>
+        <a-entity id="sound" sound></a-entity>
 
         <!-- Entorn 360 inicial -->
         <a-sky id="sky" src="#ipresentacio"></a-sky>
@@ -57,26 +59,33 @@
         <a-sphere id="esfera3" boto3="" position="0.17 -0.69 -2" radius="0.027" color="green" visible="false"
             animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere>
 
-        <a-sphere id="esfera4" boto4="" position="-0.47 -1.01 -2" radius="0.027" color="green" visible="false"
+        <a-sphere id="esfera4" boto4="" position="-0.47 -1.14 -2" radius="0.027" color="green" visible="false"
             animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere>
 
-        <a-sphere id="esfera5" boto5="" position="-0.46 -0.71 -2" radius="0.027" color="green" visible="false"
+        <a-sphere id="esfera5" boto5="" position="-0.50 -0.78 -2" radius="0.027" color="green" visible="false"
             animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere>
         
-        <a-sphere id="esfera6" boto6="" position="-0.67 -0.71 -2" radius="0.027" color="green" visible="false"
+        <a-sphere id="esfera6" boto6="" position="-0.72 -0.77 -2" radius="0.027" color="green" visible="false"
             animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere>
 
-        <a-sphere id="esfera7" boto7="" position="-0.64 -0.77 -2" radius="0.027" color="green" visible="false"
+        <a-sphere id="esfera7" boto7="" position="-0.68 -0.85 -2" radius="0.027" color="green" visible="false"
             animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere>
         
-        <a-sphere id="esfera8" boto8="" position="-0.60 -0.85 -2" radius="0.027" color="green" visible="false"
+        <a-sphere id="esfera8" boto8="" position="-0.65 -0.95 -2" radius="0.027" color="green" visible="false"
             animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere>
 
-        <a-sphere id="esfera9" boto9="" position="0.10 -1.16 -2" radius="0.027" color="green" visible="false"
-            animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere>
-
-        <a-sphere id="inici" inici="" position="0.97 -0.53 -2" radius="0.027" color="green" visible="false"
+        <a-sphere id="esfera9" boto9="" position="0.10 -1.30 -2" radius="0.027" color="green" visible="false"
+            animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"></a-sphere> 
+                 
+        <a-sphere id="inici" inici="" position="0.97 -0.53 -2" radius="0.027" color="red" visible="false"
             animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"; mylink="https://fernando252778.github.io/XDDD/"></a-sphere>
+        
+        <a-plane id="plano" position="0 -1 -2" src="#dibuplano" rotation="0 0 0" scale="2 1 2" id="plano" position="0 -1 -2"
+         src="#dibuplano" rotation="0 0 0" scale="2 1 2" visible="false" > </a-plane>
+
+
+
+
     </a-scene>
 
 
@@ -97,6 +106,7 @@
         const esfera8 = document.querySelector('#esfera8');
         const esfera9 = document.querySelector('#esfera9');
         const inici = document.querySelector('#inici');
+        const plano = document.querySelector('#plano');
         const mapa = document.querySelector('#plano');
 
         //elimina el moviment de les tecles del cursor
@@ -133,10 +143,36 @@
                     esfera7.setAttribute('visible', true);
                     esfera8.setAttribute('visible', true); 
                     esfera9.setAttribute('visible', true); 
-                    inici.setAttribute('visible', true); 
+                    inici.setAttribute('visible', true);
+                    plano.setAttribute('visible', true);
                     mapa.setAttribute('visible', true);
                     idioma = "uk"
-                    playAudio("Intro");  
+                    playAudio("Abocador");  
+                })
+            }
+        });
+
+                AFRAME.registerComponent("casa", {
+            init: function () {
+                this.el.addEventListener("click", (e) => {
+                    sky.setAttribute('src', '#i00'); //Mostra la imatge 0  
+                    banderaEs.setAttribute('visible', false);
+                    banderaCat.setAttribute('visible', false);
+                    banderaUk.setAttribute('visible', false);
+                    esfera1.setAttribute('visible', true);
+                    esfera2.setAttribute('visible', true);
+                    esfera3.setAttribute('visible', true);
+                    esfera4.setAttribute('visible', true);
+                    esfera5.setAttribute('visible', true);
+                    esfera6.setAttribute('visible', true);
+                    esfera7.setAttribute('visible', true);
+                    esfera8.setAttribute('visible', true); 
+                    esfera9.setAttribute('visible', true); 
+                    inici.setAttribute('visible', true); 
+                    plano.setAttribute('visible', true);
+                    mapa.setAttribute('visible', true);
+                    idioma = "uk"
+                    playAudio("Abocador.mp3");  
                 })
             }
         });
@@ -157,10 +193,10 @@
                     esfera7.setAttribute('visible', true);
                     esfera8.setAttribute('visible', true);
                     esfera9.setAttribute('visible', true);
-                    inici.setAttribute('visible', true);
+                    inici.setAttribute('visible', true); 
                     mapa.setAttribute('visible', true);
                     idioma = "cat"
-                    playAudio("Intro");  //Aqui se modifica los audios*
+                    playAudio("Abocador");
                 })
             }
         });
@@ -181,10 +217,10 @@
                     esfera7.setAttribute('visible', true);
                     esfera8.setAttribute('visible', true);
                     esfera9.setAttribute('visible', true);
-                    inici.setAttribute('visible', true);
+                    inici.setAttribute('visible', true); 
                     mapa.setAttribute('visible', true);
                     idioma = "es"
-                    playAudio("Intro");  
+                    playAudio("Abocador");
                 })
             }
         });
@@ -289,8 +325,9 @@
                     playAudio("xddddddd");
                 })
             }
-        });  
-        AFRAME.registerComponent("inici", {
+        }); 
+              
+        AFRAME.registerComponent("plano", {
             init: function () {
                 this.el.addEventListener("click", (e) => {
                     sky.setAttribute('src', '#i010'); //Mostra la imatge de la torre                
@@ -298,6 +335,31 @@
                         sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
                     }
                     playAudio("xddddddd");
+                })
+            }
+        });       
+        AFRAME.registerComponent("inici", {
+            init: function () {
+                this.el.addEventListener("click", (e) => {
+                    sky.setAttribute('src', '#ipresentacio'); //Mostra la imatge inicial
+                    banderaEs.setAttribute('visible', true);
+                    banderaCat.setAttribute('visible', true);
+                    banderaUk.setAttribute('visible', true);
+                    esfera1.setAttribute('visible', false);
+                    esfera2.setAttribute('visible', false);
+                    esfera3.setAttribute('visible', false);
+                    esfera4.setAttribute('visible', false);
+                    esfera5.setAttribute('visible', false);
+                    esfera6.setAttribute('visible', false);
+                    esfera7.setAttribute('visible', false);
+                    esfera8.setAttribute('visible', false);
+                    esfera9.setAttribute('visible', false);
+                    inici.setAttribute('visible', false);
+                    plano.setAttribute('visible', false);
+                    mapa.setAttribute('visible', false);
+                    if (sound.components.sound.isPlaying) {
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                    }
                 })
             }
         });
