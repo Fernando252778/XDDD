@@ -1,274 +1,449 @@
-
-<!DOCTYPE html>
-<html lang="ca">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon Ball</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #fff;
-        }
-        header {
-            background: #000;
-            color: #fff;
-            padding: 15px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            padding-right: 30px;
-        }
 
-        header nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        .container {
-            /*padding: 80px 20px 20px;*/
-            text-align: center;
-        }
+<meta charset="utf-8">
 
-        .main-image {
-            width: 100%;
-            height: auto;
-        }
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.0/dist/aframe-extras.min.js"></script>
+<script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+<script src="https://agarci9inscastellet.github.io/scaperoom/js/scaperoom.js"></script>
 
-        .info {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            text-align: left;
-        }
+<script>
+AFRAME.registerComponent("mylink", {
+  schema:{href:{type:"string"}},
+  init:function(){
+    this.el.addEventListener("click",()=>{
+      window.location = this.data.href;
+    });
+  }
+});
+</script>
 
-        .info a {
-            font-weight: bold;
-            text-decoration: none;
-            display: block;
-            margin-top: 10px;
-            color: #074689;
-            text-align: center;
-        }
-
-
-        .info a:hover {
-            text-decoration: underline;
-        }
-        .flex-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-        .box {
-            display: flex;
-            flex-direction: column;
-            background: #f0f0f0;
-            padding: 15px;
-            margin: 10px;
-            width: 400px;
-            align-items: center;
-            text-align: center;
-            border: 2px solid #ccc;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        .box img {
-            width: 90%;
-            height: auto;
-            cursor: pointer;
-        }
-        .about {
-            padding: 20px;
-            text-align: center;
-            background: #ddd;
-        }
-
-        .about img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-top: 10px;
-        }
-
-        .about p {
-           max-width: 600px;
-              margin: auto;
-              padding-top: 10px;
-        }
-        .about button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #000;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .about button:hover {
-            background-color: #333;
-        }
-
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-        @media (max-width: 768px) {
-            header {
-                padding-right: 15px;
-            }
-            .flex-container {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <a href="#introduccio">Introducció</a>
-            <a href="#exercicis">Exercicis</a>
-            <a href="#sobre-mi">Sobre Mi</a>
-        </nav>
-    </header>
-    <div class="container">
-        <img src="imatges/principal.jpg" alt="Imatge Principal" class="main-image">
-        <div class="info" id="introduccio">
-            <h2>Dragon Ball</h2>
-            <p>Dragon Ball es una popular franquicia multimedia de manga y anime, 
-               creada por Akira Toriyama, que narra las aventuras de Son Goku, un guerrero saiyajin que protege la Tierra de diversas amenazas. La historia gira en torno a la búsqueda de unas esferas mágicas que, al ser reunidas, invocan a un dragón que concede deseos. 
-            </p>
-            <p>
-           Trama principal: La serie sigue la evolución de Son Goku, 
-           desde su infancia hasta la adultez, enfrentando oponentes poderosos y salvando a la Tierra. 
-           A lo largo de la historia, los personajes usan las esferas del dragón para resolver problemas, aunque también son codiciadas por villanos.
-             </p>
-            <p>Aquest portafolis explora aquestes llibreries en profunditat i presenta els projectes desenvolupats amb cadascuna d'elles.
-            </p>
-            <a href="https://github.com/Fernando252778/XDDD" target="_blank">Visita el GitHub d'aquest projecte</a>
-        </div>
-        <div class="flex-container" id="exercicis">
-            <div class="box">
-                <img src="imatges/si.jpg" alt="Imatge 1" onclick="location.href='ex1/1.html'">
-                <div>
-                    <h3>Manberroy jr</h3>
-                    <p>Un excelente cantante de la música africana, este artista te muestra todos los puntos de la cultura aficana en cada una de sus canciones</p>
-                 
-                    
-                </div>
-            </div>
-            <div class="box">
-                <img src="imatges/goku.jpg" alt="Imatge 2" onclick="location.href='ex2/2.html'">
-                <div>
-                    <h3>Goku</h3>
-                    <p>Goku es un guerrero Saiyajin de la serie Dragon Ball. Enviado a la Tierra para destruirla, 
-                       su naturaleza cambió tras golpearse la cabeza de niño, volviéndose bondadoso. 
-                       Es un artista marcial con fuerza sobrehumana que busca la paz y el desafío de volverse más
-                       fuerte entrenando constantemente. </p>
-                </div>
-            </div>
-            <div class="box">
-                <img src="imatges/brujaa.jpg" alt="Imatge 3" onclick="location.href='ex3/ex3.html'">
-                <div>
-                    <h3>Bruja</h3>
-                    <p>Bruja</p>
-                </div>
-            </div>
-            <div class="box">
-                <img src="imatges/construccio.png" alt="Imatge 2" onclick="location.href='ex4/ex4.html'">
-                <div>
-                    <h3>CARES</h3>
-                    <p>PICA PER PROVAR LES CARES</p>
-                </div>
-            </div>
-            <div class="box">
-                <img src="imatges/cubisme.jpg" alt="Imatge 3" onclick="location.href='ex4/ex4.html'">
-                <div>
-                    <h3>CUBISME</h3>
-                    <p>Creem la nostra pàgina similar a la del cubisme. La temàtica és lliure. 
-                       Ha de tenir com a mínim 6 objectes i 3 animacions per click del mouse o més. 
-                       S'ha de penjar al portafolis. Lliureu el link al portafolis.
 
-</p>
-                </div>
-            </div>
+<a-scene cursor="rayOrigin: mouse" raycaster="objects: .aframe-clickable">
 
-            <div class="box">
-                <img src="imatges/xd.jpg" alt="Imatge 3" onclick="location.href='ex5/ex5.html'">
-                <div>
-                    <h3>TASCA 5</h3>
-                    <p>La casa del susto</p>
-                </div>
-            </div>
+<!-- JUGADOR -->
+<a-entity id="rig"
+movement-controls="speed:0.3"
+position="0 0 0">
 
-            <div class="box">
-                <img src="imatges/casa.jpg" alt="Imatge 3" onclick="location.href='ex6/ex6.html'">
-                <div>
-                    <h3>TASCA 6</h3>
-                    <p>La casa abandonada</p>
-                </div>
-            </div>
+  <a-entity camera
+  id="user-camera"
+  position="0 3 0"
+  look-controls>
+  
+<a-entity position="1.55 0.77 -1">
 
-            <div class="box">
-                <img src="imatges/construccio.png" alt="Imatge 3" onclick="location.href='ex7/ex7.html'">
-                <div>
-                    <h3>EX7</h3>
-                    <p>Descripció breu.</p>
-                </div>
-            </div>
+  <!-- BOTÓN -->
+  <a-plane 
+    id="teleport6"
+    class="aframe-clickable"
+    width="0.4"
+    height="0.1"
+    color="red">
+  </a-plane>
 
-            <div class="box">
-                <img src="imatges/construccio.png" alt="Imatge 3" onclick="location.href='ex8/ex8.html'">
-                <div>
-                    <h3>EX8</h3>
-                    <p>Descripció breu.</p>
-                </div>
-            </div>
+  <!-- TEXTO -->
+  <a-text
+    value="Volver al inicio"
+    position="0 0 0.003"
+    align="center"
+    color="white"
+    width="1">
+  </a-text>
 
-            <div class="box">
-                <img src="imatges/construccio.png" alt="Imatge 3" onclick="location.href='ex9/ex9.html'">
-                <div>
-                    <h3>EX9</h3>
-                    <p>Descripció breu.</p>
-                </div>
-            </div>
-        </div>
+</a-entity>
+
+</a-entity>
+
+    <a-entity id="sensor"
+    raycaster="objects: .paret; far:4; showLine:false">
+    </a-entity>
+
+  </a-entity>
+
+</a-entity>
 
 
+<!-- ASSETS -->
 
-      <div class="about" id="sobre-mi">
-            <h2>Fernando Nuñez</h2>
-            <img src="imatges/sobremi.png" alt="Foto de perfil">
-           
-            <p>Estudiant de SMIX del cicle formatiu de Grau Mitjà en Sistemes Microinformàtics i Xarxes.
-            </p>
-            <p>
-                 M'apassiona la tecnologia i la informàtica, especialment tot el que té a veure amb la configuració,
-                 el manteniment i la seguretat dels sistemes informàtics.
-            </p>
-            <p>
-                   Durant la meva formació, he adquirit coneixements en hardware, xarxes, sistemes operatius i administració de servidors.
-                    M'agrada treballar en equip i solucionar problemes tècnics de manera eficient.
-                     Estic motivat per continuar aprenent i aplicar els meus coneixements en un entorn professional.
-            </p>
-            <button onclick="window.location.href='curriculum.pdf'">Descarrega el meu CV</button>
-            
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2025 El Meu Lloc Web</p>
-    </footer>
+<a-assets>
+
+<a-asset-item id="bikini" src="escenarios/bikini.glb"></a-asset-item>
+<a-asset-item id="bus" src="items/bus.glb"></a-asset-item>
+<a-asset-item id="flecha" src="cosas/flecha.glb"></a-asset-item>
+<a-asset-item id="estrella" src="personajes/patricio.glb"></a-asset-item>
+<a-asset-item id="estrellameme" src="personajes/patriciomeme.glb"></a-asset-item>
+<img id="cr7" src="cosas/cr7.png">
+<img id="mapa" src="items/mapa.png">
+
+</a-assets>
+
+<!-- TEXTO 1  BUS 1-->
+<a-text
+id="texto1"
+value="CLICK AL BUS PARA VIAJAR"
+position="-9.25831 20.53317 46.17747"
+rotation="7 150 0"
+align="center"
+color="#FF0000"
+width="40"
+look-at="[camera]"
+animation="property: position; dir: alternate; dur:1500; easing:easeInOutSine; loop:true; to:-9.25831 11 46.17747">
+</a-text>
+
+<!-- TEXTO 2 BUS  2 -->
+<a-text
+id="texto2"
+value="CLICK AL BUS PARA VIAJAR"
+position="2.69967 17.36307 -33.44805"
+rotation="6 0 -82"
+align="center"
+color="#FF0000"
+width="40"
+look-at="[camera]"
+animation="property: position; dir: alternate; dur:1500; easing:easeInOutSine; loop:true; to:2.69967 11 -33.44805">
+</a-text>
+
+<!-- TEXTO 1 PATRICIO -->
+
+<a-text
+id="textoPatricio"
+value="VETE DE MI CASA BOB"
+position="-15.43329 -0.15 -24.96439"
+align="center"
+color="#FF0000"
+width="5"
+look-at="[camera]"
+visible="false">
+</a-text>
+
+<!-- ESCENARIO -->
+<a-entity gltf-model="#bikini" position="0 -2 0" scale="50 50 50" rotation="0 -260 0"></a-entity>
+
+<!-- BUSES -->
+<a-entity 
+    id="bus1" 
+    class="aframe-clickable"
+    gltf-model="#bus" 
+    position="-9.25831 -1.93 46.17" 
+    scale="0.9 0.9 0.9" 
+    rotation="0 151 0">
+</a-entity>
+
+<a-entity 
+    id="bus2" 
+    class="aframe-clickable"
+    gltf-model="#bus" 
+    position="2.80 -1.73 -34.45" 
+    scale="0.9 0.9 0.9" 
+    rotation="0 -38 0">
+</a-entity>
+
+<!-- PLANO QUE APARECE AL TOCAR BUS 1 -->
+<a-plane
+    src="#mapa"
+    position="-9.258 0 46.17"
+    width="3"
+    height="2"
+    rotation="0 142.46595575927918 0"
+    material="side: double"
+></a-plane>
+
+<a-plane
+    id="mapa2"
+    class="aframe-clickable"
+    src="mapa"
+    position="2.95 0 -34.45"
+    width="3"
+    height="2"
+    rotation="0 -80.08975947677186 0"
+    material="side: double"
+></a-plane>
+
+<!-- PERSONAJE PATRICIO -->
+<a-entity class="aframe-clickable" gltf-model="#estrella" position="40 40 40" scale="5 5 5" look-at="[camera]" mylink="href: http://127.0.0.1:5500/prueba.html"></a-entity>
+
+</a-entity><a-entity gltf-model="#estrellameme" position="-15.43329 -0.90 -24.96439" rotation="12.46526979086619 103.79932599708046 0" 
+scale="1 1 1" look-at="[camera]" id="patricio1"></a-entity>
+
+<!-- FLECHA 1 -->
+<a-entity
+gltf-model="#flecha"
+position="2.69967 3.36 -33.44"
+scale="0.007 0.007 0.007"
+rotation="6 0 -82"
+animation="property: position; dir:alternate; dur:1500; easing:easeInOutSine; loop:true; to:2.69967 7 -33.44">
+</a-entity>
+
+<!-- FLECHA 2 -->
+<a-entity
+gltf-model="#flecha"
+position="-9.25831 3.53 46.17"
+scale="0.007 0.007 0.007"
+rotation="6 66 -82"
+animation="property: position; dir:alternate; dur:1500; easing:easeInOutSine; loop:true; to:-9.25831 7.53 46.17">
+</a-entity>
+
+
+<!-- PLANOS INVISIBLES CON COLISIÓN BOB ESPONJA, PATRICIO Y CALAMARDO -->
+
+<a-plane class="paret" position="-5 7 -19" rotation="0 21 0" width="50" height="50" material="side:double; opacity:0"></a-plane>
+<a-plane class="paret" position="-19 6 -25" rotation="0 84 0" width="50" height="50" material="side:double; opacity:0"></a-plane>
+<a-plane class="paret" position="3 15 -36" rotation="0 151 0" width="50" height="50" material="side:double; opacity:0"></a-plane>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN CRUSTACEO CASCARUDO Y BALDE DE CARNADA -->
+
+<a-plane class="paret" src="#cr7" position="-5 7 25.1721" rotation="0 2.5886233184010594 0" width="50" height="50" material="side:double; opacity:0"></a-plane>
+<a-plane class="paret" position="9.79564 7 36.90549" rotation="0 -83.60714738107998 0" width="50" height="50" material="side:double; opacity:0"></a-plane>
+<a-plane class="paret" position="-5 7 48.90613" rotation="0 21 0" width="50" height="50" material="side:double; opacity:0"></a-plane>
+<a-plane class="paret" position="-17.5284 7.70967 39.30528" rotation="0 -85.4217047182593 0" width="50" height="50" material="side:double; opacity:0"></a-plane>
+
+<!-- BOTONES DE TELETRANSPORTE -->
+
+<a-sphere id="teleport1" class="aframe-clickable" position="-9.98022 -0.04340 45.62255" material="opacity: 100; side: double" radius="0.050" color="blue"
+animation="property: scale; dur: 1000;  to: 0.050 0.050 0.050; dir: alternate;  loop: true"></a-sphere>
+
+<a-sphere id="teleport5" class="aframe-clickable" position="2.81298 0.09826 -35.32094" material="opacity: 100; side: double" radius="0.050" color="blue"
+animation="property: scale; dur: 1000;  to: 0.050 0.050 0.050; dir: alternate;  loop: true"></a-sphere>
+
+
+<a-sphere id="teleport2" class="aframe-clickable" position="1 3 0" radius="0.1" color="red"></a-sphere>
+<a-sphere id="teleport4" class="aframe-clickable" position="2 3 0" radius="0.1" color="red"></a-sphere>
+
+<a-sphere id="teleport3" class="aframe-clickable" position="-5.3875 -3 28.51871" radius="0.1" color="red"></a-sphere>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN CASA BOB ESPONJA -->
+
+<a-plane class="paret" position="-13.66037 -0.474 -38.72028" width="4" height="2" color="blue" rotation="0 65.135 0" material="opacity: 0; side: double" scale="1.342 6.057 1"></a-plane>
+<a-plane class="paret" position="-12.12167 -0.474 -36.08848" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 -4.886184076875661 0" scale="1.342 6.057 1"></a-plane>
+<a-plane class="paret" position="-11.53943 -0.67024 -39.84387" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 -4.886184076875661 0" scale="1.342 6.057 1"></a-plane>
+<a-plane class="paret" position="-9.94321 -0.47447 -37.06134" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 65.13498806606225 0" scale="1.34178 6.05738 1"></a-plane>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN CASA CALAMARDO -->
+
+<a-plane class="paret" position="-12.98712 -0.47447 -29.63885" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 65.13498806606225 0" scale="1.34178 6.05738 1"></a-plane>
+<a-plane class="paret" position="-16.12844 -0.474 -28.41242" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 156.6197321723959 0" scale="1.342 6.057 -1.10543"></a-plane>
+<a-plane class="paret" position="-17.69649 -0.47447 -31.15357" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 65.13498806606225 0" scale="1.34178 6.05738 1"></a-plane>
+<a-plane class="paret" position="-14.41811 -0.474 -32.68632" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 156.6197321723959 0" scale="1.342 6.057 -1.10543"></a-plane>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN CASA PATRICIO -->
+
+<a-plane class="paret" position="-15.50278 -0.47447 -22.6079" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 65.13498806606225 0" scale="1.34178 6.05738 1"></a-plane>
+<a-plane class="paret" position="-16.94864 -0.474 -25.662" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 156.62 0" scale="1.342 6.057 -1.105"></a-plane>
+<a-plane class="paret" position="-18.99233 -0.474 -21.21284" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 156.62 0" scale="1.342 6.057 -1.105"></a-plane>
+<a-plane class="paret" position="-20.28225 -0.47447 -24.45301" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 65.13498806606225 0" scale="1.34178 6.05738 1"></a-plane>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN BUS 2 -->
+
+<a-plane class="paret" position="-0.02215 -0.47447 -37.06134" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 65.13498806606225 0" scale="1.34178 6.05738 1"></a-plane>
+<a-plane class="paret" position="3.40041 -0.474 -31.93211" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 151.5805683642203 0" scale="2.79262 4.01425 1"></a-plane>
+<a-plane class="paret" position="9.06437 -0.47447 -31.24014" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 65.13498806606225 0" scale="1.34178 6.05738 1"></a-plane>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN CRUSTACEO CASCARUDO -->
+
+<a-plane class="paret" position="-10.56637 -0.474 29.173" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 109.80048594328072 0" scale="2.2502 6.057 1"></a-plane>
+<a-plane class="paret" position="-12.46134 -0.47447 34.63011" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 -157.67626634661715 0" scale="2.00976 6.05738 1"></a-plane>
+<a-plane class="paret" position="-16.73325 -0.474 31.73205" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 109.80048594328072 0" scale="2.2502 6.057 1"></a-plane>
+<a-plane class="paret" position="-15.15592 -0.47447 26.64066" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 -157.67626634661715 0" scale="2.00976 6.05738 1"></a-plane>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN BALDE DE CARNADA -->
+
+<a-plane class="paret" position="0.32633 -0.474 30.02648" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 92.85869689905739 0" scale="2.25 6.057 1"></a-plane>
+<a-plane class="paret" position="4.39106 -0.474 34.04975" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 171.99906530929746 0" scale="2.2502 6.057 1"></a-plane>
+<a-plane class="paret" position="8.58448 -0.474 30.02648" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 92.85869689905739 0" scale="2.25 6.057 1"></a-plane>
+<a-plane class="paret" position="4.39106 -0.474 26.16754" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 171.99906530929746 0" scale="2.2502 6.057 1"></a-plane>
+
+<!-- PLANOS INVISIBLES CON COLISIÓN BUS 1 -->
+
+<a-plane class="paret" position="-8.56209 -0.474 44.59691" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 147.74633479920487 0" scale="2.2502 6.057 1"></a-plane>
+<a-plane class="paret" position="-6.99137 -0.474 50.4709" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 72.02423259471527 0" scale="2.2502 6.057 1"></a-plane>
+<a-plane class="paret" position="-10.41847 -0.474 48.24253" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 147.74633479920487 0" scale="2.2502 6.057 1"></a-plane>
+<a-plane class="paret" position="-13.37017 -0.474 46.70275" width="4" height="2" color="blue" material="opacity: 0; side: double" rotation="0 72.02423259471527 0" scale="2.2502 6.057 1"></a-plane>
+
+<script>
+
+// SCRIPT DE COLISIONES
+
+const rig = document.querySelector('#rig');
+const sensor = document.querySelector('#sensor');
+
+let lastValidPosition = new THREE.Vector3();
+
+AFRAME.registerComponent('col-check',{
+tick:function(){
+const raycaster = sensor.components.raycaster;
+const currentPosition = rig.object3D.position;
+const movementDirection = new THREE.Vector3()
+.copy(currentPosition)
+.sub(lastValidPosition)
+.normalize();
+
+if(movementDirection.length()>0){
+  sensor.setAttribute('raycaster','direction',movementDirection);
+  if(raycaster.intersections.length>0){
+    rig.object3D.position.copy(lastValidPosition);
+  }else{
+    lastValidPosition.copy(currentPosition);
+  }
+}else{
+  lastValidPosition.copy(currentPosition);
+}
+}
+});
+
+// TELEPORTS
+
+const mover1 = document.querySelector("#rig");
+const teleport1 = document.querySelector("#teleport1");
+
+// Posición 1 a la que quieres teletransportarte 
+const destino1 = { x: -9.78232, y: -3, z: -27.75681};
+
+teleport1.addEventListener("click", () => {
+    mover1.setAttribute("position", destino1);
+});
+
+
+const mover2 = document.querySelector("#rig");
+const teleport2 = document.querySelector("#teleport2");
+
+// Posición 2 a la que quieres teletransportarte
+const destino2 = { x: -5.3875, y: -3, z: 28.51871};
+
+teleport2.addEventListener("click", () => {
+    mover2.setAttribute("position", destino2);
+});
+
+
+const mover3 = document.querySelector("#rig");
+const teleport3 = document.querySelector("#teleport3");
+
+// Posición 3 a la que quieres teletransportarte
+const destino3 = { x: -5.3875, y: -3, z: 28.51871};
+
+teleport3.addEventListener("click", () => {
+    mover3.setAttribute("position", destino3);
+});
+
+
+const mover4 = document.querySelector("#rig");
+const teleport4 = document.querySelector("#teleport4");
+
+// Posición 4 a la que quieres teletransportarte
+const destino4 = { x: -9.97022, y: -3, z: -27.65681};
+
+teleport4.addEventListener("click", () => {
+    mover4.setAttribute("position", destino4);
+});
+
+
+const mover5 = document.querySelector("#rig");
+const teleport5 = document.querySelector("#teleport5");
+
+// Posición 5 a la que quieres teletransportarte
+const destino5 = { x: -5.4875, y: -3, z: 28.61871};
+
+teleport5.addEventListener("click", () => {
+    mover5.setAttribute("position", destino5);
+});
+
+const mover6 = document.querySelector("#rig");
+const teleport6 = document.querySelector("#teleport6");
+
+// Posición 6 a la que quieres teletransportarte
+const destino6 = { x: -5.4875, y: -3, z: 28.61871};
+
+teleport6.addEventListener("click", () => {
+    mover6.setAttribute("position", destino6);
+});
+
+
+// MOVIMIENTO DEL BUS 1 AL TOCARLO
+
+const bus1 = document.querySelector("#bus1");
+
+// Nueva posición a donde quieres moverlo
+const nuevaPos = { x: 10, y: -100, z: -20 };
+
+bus1.addEventListener("click", () => {
+    bus1.setAttribute("position", nuevaPos);
+});
+
+// MOVIMIENTO DEL BUS 2 AL TOCARLO
+
+const bus2 = document.querySelector("#bus2");
+
+// Nueva posición a donde quieres moverlo
+const nuevaPos2 = { x: 10, y: -100, z: -20 };
+
+bus2.addEventListener("click", () => {
+    bus2.setAttribute("position", nuevaPos2);
+});
+
+
+
+
+// CAMBIO DEL TEXTO 1 AL TOCAR EL BUS 1
+
+const texto1 = document.querySelector("#texto1");
+
+bus1.addEventListener("click", () => {
+    bus1.setAttribute("position", nuevaPos);
+
+    // CAMBIAR TEXTO
+    texto1.setAttribute("value", "HAZ CLICK DONDE QUIERES VIAJAR");
+});
+
+// CAMBIO DEL TEXTO 2 AL TOCAR EL BUS 2
+
+const texto2 = document.querySelector("#texto2");
+
+bus2.addEventListener("click", () => {
+    bus2.setAttribute("position", nuevaPos);
+
+    // CAMBIAR TEXTO
+    texto2.setAttribute("value", "HAZ CLICK DONDE QUIERES VIAJAR");
+});
+
+// PATRICIO HABLANDO
+
+const patricio = document.querySelector("#patricio1");
+const textoPatricio = document.querySelector("#textoPatricio");
+
+// contador de clicks
+let contadorClicks = 0;
+
+patricio.addEventListener("click", () => {
+    contadorClicks++;
+
+    // mostrar texto
+    textoPatricio.setAttribute("visible", true);
+
+    if (contadorClicks === 1) {
+        textoPatricio.setAttribute("value", "JE JE JE JE JE");
+    } else if (contadorClicks === 2) {
+        textoPatricio.setAttribute("value", "VETE DE MI CASA BOB");
+    } else if (contadorClicks === 3) {
+        textoPatricio.setAttribute("value", "NO QUIERO QUE ENTRES, ESTOY ENFADADO CONTIGO");
+    } else {
+        textoPatricio.setAttribute("value", "YA BASTA, NO TE RESPONDERE MAS");
+    }
+});
+
+
+document.querySelector('a-scene').setAttribute('col-check','');
+
+// ==== ScapeRoom: Click en bus1 ====
+hideElement("#plano1"); // Oculto al inicio
+
+
+</script>
+
 </body>
 </html>
+
+
